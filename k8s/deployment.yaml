@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: ghcr.io/ddk1715/gitops-manifests:a56d4c788033a2070e09164e0e75ff80847b3363
+        image: ghcr.io/ddk1715/gitops-manifests:e9873ca6fb561d62548f3047046a28f75330e537
         ports:
         - containerPort: 8080
