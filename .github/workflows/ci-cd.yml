@@ -72,3 +72,12 @@ jobs:
           # Комітимо та пушимо зміни назад у репозиторій
           git commit -am "Update image tag to ${{ github.sha }}"
           git push
+          
+      - name: Slack Notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always() # Виконувати завжди: і при успіху, і при помилці
